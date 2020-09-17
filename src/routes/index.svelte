@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<CovidStat />
+<CovidStat {...usStats}/>
 <CovidChart />
 <TableContainer />
 
@@ -30,6 +30,9 @@
     import CovidStat from '../components/CovidStat.svelte';
     import CovidChart from '../components/CovidChart.svelte';
     import TableContainer from '../components/TableContainer.svelte';
+import About from './about.svelte';
+import Error from './_error.svelte';
+import Layout from './_layout.svelte';
 
     export let usStats;
     console.log(usStats, 'usStats');
