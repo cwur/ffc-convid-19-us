@@ -5,7 +5,8 @@
     try {
       const usStats = await requests.usStats();
       const historicUS = await requests.historicUS();
-      return { usStats, historicUS };
+      const statesData = await requests.statesData();
+      return { usStats, historicUS, statesData, };
     } catch (e) {
       console.log(e);
     }
@@ -19,8 +20,10 @@
 
   export let usStats;
   export let historicUS;
-  console.log(historicUS, "historicUS");
-  console.log(usStats, "usStats");
+  export let statesData;
+  console.log(statesData, "statesData");
+  // console.log(historicUS, "historicUS");
+  // console.log(usStats, "usStats");
 </script>
 
 <svelte:head>
