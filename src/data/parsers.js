@@ -23,7 +23,7 @@ function parseHistoric(historicData) {
     {
       label: 'Cases',
       key: 'positive',
-      color: 'rbg(100, 0, 200)',
+      color: 'rgb(100, 0, 200)',
     },
     {
       label: 'Recovered',
