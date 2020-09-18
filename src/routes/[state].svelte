@@ -1,8 +1,8 @@
 <script context="module">
-  import stateNames from "../data/stateNames";
+  import stateNames from "../data/stateNames.js";
+  import requests from '../data/requests.js';
 
   export async function preload(page) {
-    console.log(stateNames, page.params["state"]);
     const state = page.params["state"];
     if (
       stateNames.find((stateName) => stateName.abbreviation === state) ===
@@ -13,7 +13,8 @@
     }
 
     try {
-      return { state };
+      let stats = await requests.stateStats(state)
+      return { state, stats };
     } catch (e) {
       this.error(
         500,
@@ -22,6 +23,7 @@
       return;
     }
   }
+
 </script>
 
 <script>
@@ -30,6 +32,7 @@
   import TableContainer from "../components/TableContainer.svelte";
 
   export let state;
+  export let stats;
 </script>
 
 <svelte:head>
@@ -42,5 +45,5 @@
   </div>
 </div>
 
-<CovidStat />
+<CovidStat {...stats}/>
 <CovidChart />
